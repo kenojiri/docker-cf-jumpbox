@@ -1,4 +1,4 @@
-# jumpbox in a Docker container for Cloud Foundry
+# jumpbox on Docker for Cloud Foundry
 
 inspired by [jumpbox-boshrelease](https://github.com/cloudfoundry-community/jumpbox-boshrelease).
 
