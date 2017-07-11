@@ -5,18 +5,16 @@ inspired by [jumpbox-boshrelease](https://github.com/cloudfoundry-community/jump
 ## to get BASH shell prompt
 
 ```
-$ docker run -it --rm ozzozz/cf-jumpbox
+$ docker run -it --rm -v $PWD:/work ozzozz/cf-jumpbox
 ```
 
 ## commands you can run
 
-* [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)
-* [UAA CLI](https://github.com/cloudfoundry/cf-uaac)
-* [BOSH CLI v1](https://bosh.io/docs/bosh-cli.html)
-* [BOSH CLI v2](https://bosh.io/docs/cli-v2.html)
-* [Concourse CLI](https://concourse.ci/fly-cli.html)
-* [spruce](https://github.com/geofffranks/spruce)
-* [spiff](https://github.com/cloudfoundry-incubator/spiff)
+* cf [(Cloud Foundry CLI)](https://github.com/cloudfoundry/cli)
+  * `cf update-cli` available
+* bosh [(BOSH CLI v2)](https://bosh.io/docs/cli-v2.html)
+* uaac [(UAA CLI)](https://github.com/cloudfoundry/cf-uaac)
+* fly [(Concourse CLI)](https://concourse.ci/fly-cli.html)
 * wget
 * curl
 * git
