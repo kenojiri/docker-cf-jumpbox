@@ -33,6 +33,10 @@ RUN . $HOME/.profile &&\
 RUN curl -vL https://github.com/concourse/concourse/releases/download/`curl -s https://api.github.com/repos/concourse/concourse/releases/latest | jq -r .tag_name`/fly_linux_amd64 -o /usr/local/bin/fly &&\
     chmod +x /usr/local/bin/fly
 
+### Minio CLI ###
+RUN curl -vL https://dl.minio.io/client/mc/release/linux-amd64/mc -o /usr/local/bin/mc &&\
+    chmod +x /usr/local/bin/mc
+
 ### Vault ###
 #TODO#
 

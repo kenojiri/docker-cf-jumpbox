@@ -15,6 +15,7 @@ $ docker run -it --rm -v $PWD:/work ozzozz/cf-jumpbox
 * bosh [(BOSH CLI v2)](https://bosh.io/docs/cli-v2.html)
 * uaac [(UAA CLI)](https://github.com/cloudfoundry/cf-uaac)
 * fly [(Concourse CLI)](https://concourse.ci/fly-cli.html)
+* mc [(Minio CLI)](https://docs.minio.io/docs/minio-client-quickstart-guide)
 * wget
 * curl
 * git
