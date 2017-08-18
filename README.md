@@ -1,5 +1,7 @@
 # jumpbox on Docker for Cloud Foundry
 
+![Docker automated build](https://img.shields.io/docker/automated/ozzozz/cf-jumpbox.svg)
+
 inspired by [jumpbox-boshrelease](https://github.com/cloudfoundry-community/jumpbox-boshrelease).
 
 ## to get BASH shell prompt
