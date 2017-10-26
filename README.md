@@ -1,6 +1,6 @@
 # jumpbox on Docker for Cloud Foundry
 
-[![Docker Build Status](https://img.shields.io/docker/build/ozzozz/cf-jumpbox.svg)](https://hub.docker.com/r/ozzozz/cf-jumpbox/)
+[![Docker Pull Counter](https://img.shields.io/docker/pulls/ozzozz/cf-jumpbox.svg)](https://hub.docker.com/r/ozzozz/cf-jumpbox/)
 
 inspired by [jumpbox-boshrelease](https://github.com/cloudfoundry-community/jumpbox-boshrelease).
 
