@@ -45,15 +45,15 @@ RUN curl -vL https://dl.minio.io/client/mc/release/linux-amd64/mc -o /usr/local/
 #RUN curl -vL https://github.com/starkandwayne/safe/releases/download/`curl -s https://api.github.com/repos/starkandwayne/safe/releases/latest | jq -r .tag_name`/safe-linux-amd64 -o /usr/local/bin/safe &&\
 #    chmod +x /usr/local/bin/safe
 
-### genesis ###
-#TODO#
-#see... http://www.starkandwayne.com/blog/using-genesis-to-deploy-cloud-foundry/
-
 ### CF CLI plugins ###
 RUN cf install-plugin -f -r CF-Community update-cli
 
 ### additional tools ###
 RUN apt-get install -y vim tmux tree pwgen
+
+### gotty ###
+RUN curl -vL https://github.com/yudai/gotty/releases/download/`curl -s https://api.github.com/repos/yudai/gotty/releases/latest | jq -r .tag_name`/gotty_linux_amd64.tar.gz | tar zxvf - &&\
+    cp ./gotty /usr/local/bin/
 
 ### create workspace directory ###
 RUN mkdir /work
