@@ -60,7 +60,14 @@ RUN apt-get update &&\
 
 ### gotty ###
 RUN curl -vL https://github.com/yudai/gotty/releases/download/`curl -s https://api.github.com/repos/yudai/gotty/releases/latest | jq -r .tag_name`/gotty_linux_amd64.tar.gz | tar zxvf - &&\
-    cp ./gotty /usr/local/bin/
+    cp ./gotty /usr/local/bin/ &&\
+    rm ./gotty
+
+### usql ###
+RUN export VERSION=`curl -s https://api.github.com/repos/xo/usql/releases/latest | jq -r .tag_name | sed 's/v//'` &&\
+    curl -vL https://github.com/xo/usql/releases/download/`curl -s https://api.github.com/repos/xo/usql/releases/latest | jq -r .tag_name`/usql-${VERSION}-linux-amd64.tar.bz2 | tar jxvf - &&\
+    cp ./usql /usr/local/bin/ &&\
+    rm ./usql
 
 ### create workspace directory ###
 RUN mkdir /work

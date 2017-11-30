@@ -20,6 +20,7 @@ $ docker run -it --rm -v $PWD:/work ozzozz/cf-jumpbox
 * mc [(Minio CLI)](https://docs.minio.io/docs/minio-client-quickstart-guide)
 * terraform [(HashiCorp Terraform)](https://www.terraform.io/)
 * vault [(HashiCorp Vault)](https://www.vaultproject.io/)
+* [usql](https://github.com/xo/usql)
 * [gotty](https://github.com/yudai/gotty)
 * wget
 * curl
