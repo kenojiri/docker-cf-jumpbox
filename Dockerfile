@@ -80,6 +80,12 @@ RUN curl -vL https://storage.googleapis.com/kubernetes-helm/helm-$(curl -s https
     cp ./linux-amd64/helm /usr/local/bin/ &&\
     rm -rf ./linux-amd64
 
+### CredHub CLI ###
+RUN export VERSION=$(curl -s https://api.github.com/repos/cloudfoundry-incubator/credhub-cli/releases/latest | jq -r .tag_name) &&\
+    curl -vL https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/$VERSION/credhub-linux-$VERSION.tgz | tar zxvf - &&\
+    cp ./credhub /usr/local/bin/ &&\
+    rm ./credhub
+
 ### create workspace directory ###
 RUN mkdir /work
 WORKDIR /work
