@@ -69,6 +69,17 @@ RUN export VERSION=`curl -s https://api.github.com/repos/xo/usql/releases/latest
     cp ./usql /usr/local/bin/ &&\
     rm ./usql
 
+### Kubernetes CLI (kubectl) ###
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl &&\
+    chmod +x ./kubectl &&\
+    cp ./kubectl /usr/local/bin/ &&\
+    rm ./kubectl
+
+### helm ###
+RUN curl -vL https://storage.googleapis.com/kubernetes-helm/helm-$(curl -s https://api.github.com/repos/kubernetes/helm/releases/latest | jq -r .tag_name)-linux-amd64.tar.gz | tar zxvf - linux-amd64/helm &&\
+    cp ./linux-amd64/helm /usr/local/bin/ &&\
+    rm -rf ./linux-amd64
+
 ### create workspace directory ###
 RUN mkdir /work
 WORKDIR /work
