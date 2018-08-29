@@ -76,7 +76,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     rm ./kubectl
 
 ### helm ###
-RUN curl -vL https://storage.googleapis.com/kubernetes-helm/helm-$(curl -s https://api.github.com/repos/kubernetes/helm/releases/latest | jq -r .tag_name)-linux-amd64.tar.gz | tar zxvf - linux-amd64/helm &&\
+RUN curl -vL https://storage.googleapis.com/kubernetes-helm/helm-$(curl -s https://api.github.com/repos/helm/helm/releases/latest | jq -r .tag_name)-linux-amd64.tar.gz | tar zxvf - linux-amd64/helm &&\
     cp ./linux-amd64/helm /usr/local/bin/ &&\
     rm -rf ./linux-amd64
 
