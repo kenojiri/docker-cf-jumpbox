@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 
 RUN apt-get update &&\
-    apt-get install -y wget curl git jq zip
+    apt-get install -y wget curl git jq zip ruby
 
 ### BOSH CLI v2 ###
 RUN apt-get install -y build-essential zlibc zlib1g-dev libssl-dev libreadline-dev
@@ -16,21 +16,7 @@ RUN wget "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github
 ### CF CLI plugins ###
 RUN cf install-plugin -f -r CF-Community update-cli
 
-### Ruby ###
 WORKDIR /root
-RUN git clone https://github.com/riywo/anyenv $HOME/.anyenv &&\
-    echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> $HOME/.profile &&\
-    echo 'eval "$(anyenv init -)"' >> $HOME/.profile &&\
-    . $HOME/.profile &&\
-    anyenv install rbenv &&\
-    . $HOME/.profile &&\
-    rbenv install 2.4.1 &&\
-    rbenv global 2.4.1 &&\
-    gem install bundler --no-ri --no-rdoc
-
-### UAA CLI ###
-RUN . $HOME/.profile &&\
-    gem install cf-uaac --no-ri --no-rdoc
 
 ### Concourse CLI ###
 RUN curl -vL https://github.com/concourse/concourse/releases/download/`curl -s https://api.github.com/repos/concourse/concourse/releases/latest | jq -r .tag_name`/fly_linux_amd64 -o /usr/local/bin/fly &&\

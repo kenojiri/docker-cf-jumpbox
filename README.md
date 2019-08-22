@@ -15,7 +15,6 @@ $ docker run -it --rm -v $PWD:/work ozzozz/cf-jumpbox
 * cf [(Cloud Foundry CLI)](https://github.com/cloudfoundry/cli)
   * `cf update-cli` available
 * bosh [(BOSH CLI v2)](https://bosh.io/docs/cli-v2.html)
-* uaac [(UAA CLI)](https://github.com/cloudfoundry/cf-uaac)
 * credhub [(CredHub CLI)](https://github.com/cloudfoundry-incubator/credhub-cli)
 * kubectl [(Kubernetes CLI)](https://github.com/kubernetes/kubectl)
 * [helm](https://github.com/kubernetes/helm)
@@ -31,8 +30,6 @@ $ docker run -it --rm -v $PWD:/work ozzozz/cf-jumpbox
 * jq
 * zip
   * unzip
-* ruby
-  * bundle
 * vim
 * tmux
 * tree
