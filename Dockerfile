@@ -67,4 +67,8 @@ RUN curl -vL https://github.com/yudai/gotty/releases/download/`curl -s https://a
 RUN mkdir /work
 WORKDIR /work
 
-ENTRYPOINT ["/bin/bash", "--login"]
+### create user/group ###
+RUN useradd -u 1000 -U -m user
+USER 1000:1000
+
+CMD ["/bin/bash", "--login"]
