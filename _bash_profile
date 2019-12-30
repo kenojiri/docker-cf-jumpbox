@@ -1,0 +1,32 @@
+function retval {
+  RETVAL=$?
+  local PROMPTHEAD="\e[1;32mcf\e[0m"
+  if test $RETVAL -ne 0 ; then
+    PROMPTHEAD="\e[1;31mcf$RETVAL\e[0m"
+  fi
+  printf $PROMPTHEAD
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+}
+function promps {
+    local  WHITE="\[\e[00m\]"
+    local  GRAY="\[\e[0;37m\]"
+    local  BLUE="\[\e[1;34m\]"
+    local  RED="\[\e[1;31m\]"
+    local  GREEN="\[\e[1;32m\]"
+    local  MAG="\[\e[1;35m\]"
+    local  LIGHT_RED="\[\e[0;31m\]"
+    local  LIGHT_BLUE="\[\e[0;34m\]"
+    local  LIGHT_GREEN="\[\e[0;36m\]"
+    case $TERM in
+        xterm*) TITLEBAR='\[\e]0;\W\007\]';;
+        *)      TITLEBAR="";;
+    esac
+    local BASE="\u@\h"
+    PS1="${GRAY}\w${LIGHT_RED}\$(parse_git_branch)${WHITE}\n$ "
+    PROMPT_COMMAND='retval'
+}
+promps
+
+eval "$(direnv hook bash)"

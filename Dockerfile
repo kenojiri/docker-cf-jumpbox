@@ -71,5 +71,6 @@ WORKDIR /work
 ### create user/group ###
 RUN useradd -u 1000 -U -m user
 USER 1000:1000
+COPY _bash_profile /home/user/.bash_profile
 
 CMD ["/bin/bash", "--login"]
