@@ -15,7 +15,8 @@ RUN apt-get install -y apt-transport-https &&\
     wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add - &&\
     echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list &&\
     apt-get update &&\
-    apt-get install -y cf-cli
+    apt-get install -y cf-cli &&\
+    curl https://raw.githubusercontent.com/cloudfoundry/cli/master/ci/installers/completion/cf -o /usr/share/bash-completion/completions/cf
 
 ### CF CLI plugins ###
 RUN cf install-plugin -f -r CF-Community update-cli
