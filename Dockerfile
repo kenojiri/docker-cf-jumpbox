@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 RUN apt-get update &&\
     apt-get install -y \
@@ -40,7 +40,8 @@ RUN curl -vL https://dl.minio.io/client/mc/release/linux-amd64/mc -o /usr/local/
     chmod +x /usr/local/bin/mc
 
 ### HashiCorp Terraform ###
-RUN export VERSION=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | jq -r .tag_name | sed 's/v//'` &&\
+#RUN export VERSION=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | jq -r .tag_name | sed 's/v//'` &&\
+RUN export VERSION=0.11.14 &&\
     curl -vL https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip -o /tmp/terraform.zip &&\
     cd /usr/local/bin &&\
     unzip /tmp/terraform.zip &&\
